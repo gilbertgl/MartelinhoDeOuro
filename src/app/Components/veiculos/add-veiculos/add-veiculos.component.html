@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <h1 class="mb-3">Novo Veiculo</h1>
+
+  <form #form="ngForm" (ngSubmit)="addVeiculo()">
+    <div class="row">
+      <h2>Veiculo</h2>
+
+      <div class="col-6">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="veiculoForm.nome" name="nome">
+        <label for="modelo" class="form-label">Modelo</label>
+        <input type="text" class="form-control" id="modelo" [(ngModel)]="veiculoForm.modelo" name="modelo">
+        <label for="ano" class="form-label">Ano</label>
+        <input type="text" class="form-control" id="ano" [(ngModel)]="veiculoForm.ano" name="ano">
+        <label for="cor" class="form-label">Cor</label>
+        <input type="text" class="form-control" id="cor" [(ngModel)]="veiculoForm.cor" name="cor">
+        <label for="placa" class="form-label">Placa</label>
+        <input type="text" class="form-control" id="placa" [(ngModel)]="veiculoForm.placa" name="placa">
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success mt-3 me-2">Salvar</button>
+      <button type="button" (click)="voltar()" class="btn btn-primary mt-3">Voltar</button>
+    </div>
+  </form>
+</div>

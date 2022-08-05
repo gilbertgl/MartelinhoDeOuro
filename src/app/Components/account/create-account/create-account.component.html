@@ -1,0 +1,45 @@
+<div class="container-fluid" style="margin-top: 10%;">
+  <div class="row">
+    <div class="offset-lg-3 col-lg-6">
+
+      <div class="card-box p-4" style="background-color: #DDD;">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+          <div class="row" style="display: block;">
+            <h2 style="text-align: center;">Criar Conta</h2>
+          </div>
+
+          <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+              <label for="username">Nome de Usuario</label>
+              <input type="text" class="form-control" name="usurname" id="username" [(ngModel)]="account.username" placeholder="Insira o nome de usuario" autocomplete="off"
+                required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+              <label for="password">Senha</label>
+              <input type="password" class="form-control" name="password" id="password" [(ngModel)]="account.password" placeholder="Insira a senha" autocomplete="off"
+                required>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="offset-lg-3 col-lg-2">
+              <br>
+              <div class="form-group" style="text-align: center;">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="form.form.invalid">Criar Conta</button>
+                <button type="button" class="btn btn-link btn-block" [routerLink]="['/login']">Voltar</button>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <span></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container-fluid" style="margin-top: 10%;">
+  <div class="row">
+    <div class="offset-lg-4 col-lg-4">
+
+      <div class="card-box p-4" style="background-color: #DDD;">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+          <div class="row" style="display: block;">
+            <h2 style="text-align: center;">Login</h2>
+          </div>
+
+          <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+              <label for="username" class="form-label">Nome de Usuario</label>
+              <input type="text" class="form-control" id="username" [(ngModel)]=" loginForm.username" name="username"
+                placeholder="Insira o nome de usuario" autocomplete="off" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+              <label for="password" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="password" [(ngModel)]=" loginForm.password" name="password"
+                placeholder="Insira a senha" autocomplete="off" required>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div>
+              <br>
+              <div class="form-group" style="text-align: center;">
+                <button type="submit" class="btn btn-primary me-5" [disabled]="form.form.invalid">Login</button>
+                <button type="button" class="btn btn-link ms-5" [routerLink]="['/create-account']">Criar Conta</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

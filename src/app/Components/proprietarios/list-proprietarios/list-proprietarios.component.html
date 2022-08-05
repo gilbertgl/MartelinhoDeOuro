@@ -1,0 +1,44 @@
+<div class="container my-3 ">
+  <div class="row">
+    <div class="col mb-5">
+      <h1 class="mb-3">Clientes</h1>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-primary float-end" routerLink="/proprietarios/add">Novo Cliente</button>
+    </div>
+  </div>
+  <table class="table" *ngIf="proprietarios && proprietarios.length > 0">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proprietario of proprietarios">
+        <td>{{proprietario.nome}}</td>
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/servicos', 'proprietario', proprietario.id]">
+            Serviços
+          </button></td>
+
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/veiculos', proprietario.id]">
+            Veiculos
+          </button></td>
+
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+
+          >
+            Endereço
+          </button></td>
+<!-- (click)="openModal(proprietario.endereco)" -->
+        <td><button type="button" class="btn btn-primary"
+            [routerLink]="['/proprietarios', 'edit', proprietario.id]">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!proprietarios || proprietarios.length <= 0">Nenhum Proprietario cadastrado</p>
+</div>
+

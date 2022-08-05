@@ -1,0 +1,51 @@
+<div class="container my-5">
+  <h1 class="mb-3">Editar Informações do Cliente</h1>
+
+  <form #form="ngForm" (ngSubmit)="updateProprietario()">
+    <div class="row">
+      <div class=" col mb-3">
+        <h2>Dados Pessoais</h2>
+
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="detailsProprietarios.nome" name="name">
+        <label for="name" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="detailsProprietarios.cpf" name="cpf">
+        <label for="name" class="form-label">RG</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="detailsProprietarios.rg" name="rg">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="detailsProprietarios.email" name="email">
+        <label for="name" class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="detailsProprietarios.telefone" name="telefone">
+        <button type="submit" class="btn btn-success mt-3">Salvar</button>
+        <button type="button" (click)="deleteProprietario(detailsProprietarios.id)"
+          class="btn btn-danger mx-3 mt-3">Deletar</button>
+        <button type="button" (click)="voltar()" class="btn btn-primary mt-3">Voltar</button>
+      </div>
+
+      <div class="col mb-3">
+        <h2>Endereço</h2>
+
+        <label for="logradouro" class="form-label">Rua/Av</label>
+        <input type="text" class="form-control" id="logradouro" [(ngModel)]="detailsProprietarios.endereco.logradouro"
+          name="logradouro">
+        <label for="numero" class="form-label">Numero</label>
+        <input type="number" class="form-control" id="numero" [(ngModel)]="detailsProprietarios.endereco.numero"
+          name="numero">
+        <label for="complemento" class="form-label">Complemento</label>
+        <input type="text" class="form-control" id="complemento" [(ngModel)]="detailsProprietarios.endereco.complemento"
+          name="complemento">
+        <label for="bairro" class="form-label">Bairro</label>
+        <input type="text" class="form-control" id="bairro" [(ngModel)]="detailsProprietarios.endereco.bairro"
+          name="bairro">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" [(ngModel)]="detailsProprietarios.endereco.cidade"
+          name="cidade">
+        <label for="estado" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="estado" [(ngModel)]="detailsProprietarios.endereco.estado"
+          name="estado">
+        <label for="cep" class="form-label">CEP</label>
+        <input type="text" class="form-control" id="cep" [(ngModel)]="detailsProprietarios.endereco.cep" name="cep">
+      </div>
+    </div>
+  </form>
+</div>

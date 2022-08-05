@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MartelinhoDeOuro';
+
+  username: string | null = '';
+
+  constructor(private router: Router) { }
+
+  Logout() {
+    localStorage.clear();
+    window.location.reload();
+    this.router.navigate(['login']);
+
+  }
+
+  Username() {
+    this.username = localStorage.getItem('username');
+  }
+
+  IsLoggedIn() {
+    this.Username();
+    return localStorage.getItem('token');
+  }
 }
