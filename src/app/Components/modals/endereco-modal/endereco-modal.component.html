@@ -1,0 +1,32 @@
+<div class="container my-3">
+  <form #form="ngForm">
+    <div class="col">
+      <h2>Endereço</h2>
+
+      <label for="logradouro" class="form-label">Rua/Av</label>
+      <input type="text" class="form-control" id="logradouro" [(ngModel)]="enderecoForm.logradouro" name="logradouro"
+        disabled>
+
+      <label for="numero" class="form-label">Numero</label>
+      <input type="number" class="form-control" id="numero" [(ngModel)]="enderecoForm.numero" name="numero" disabled>
+
+      <label for="complemento" class="form-label">Complemento</label>
+      <input type="text" class="form-control" id="complemento" [(ngModel)]="enderecoForm.complemento" name="complemento"
+        disabled>
+
+      <label for="bairro" class="form-label">Bairro</label>
+      <input type="text" class="form-control" id="bairro" [(ngModel)]="enderecoForm.bairro" name="bairro" disabled>
+
+      <label for="cidade" class="form-label">Cidade</label>
+      <input type="text" class="form-control" id="cidade" [(ngModel)]="enderecoForm.cidade" name="cidade" disabled>
+
+      <label for="estado" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="estado" [(ngModel)]="enderecoForm.estado" name="estado" disabled>
+
+      <label for="cep" class="form-label">CEP</label>
+      <input type="text" class="form-control" id="cep" [(ngModel)]="enderecoForm.cep" name="cep" disabled>
+
+      <button type="button" class="btn btn-secondary mt-3 float-end mb-3" (click)="close()">Close</button>
+    </div>
+  </form>
+</div>

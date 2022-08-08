@@ -29,11 +29,9 @@
           </button></td>
 
         <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-
-          >
+            (click)="openModal(proprietario.endereco)">
             Endereço
           </button></td>
-<!-- (click)="openModal(proprietario.endereco)" -->
         <td><button type="button" class="btn btn-primary"
             [routerLink]="['/proprietarios', 'edit', proprietario.id]">Editar</button></td>
       </tr>
@@ -41,4 +39,3 @@
   </table>
   <p *ngIf="!proprietarios || proprietarios.length <= 0">Nenhum Proprietario cadastrado</p>
 </div>
-

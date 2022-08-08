@@ -19,6 +19,8 @@ import { ListServicosComponent } from './Components/servicos/list-servicos/list-
 import { AddServicosComponent } from './Components/servicos/add-servicos/add-servicos.component';
 import { EditServicosComponent } from './Components/servicos/edit-servicos/edit-servicos.component';
 import { CreateAccountComponent } from './Components/account/create-account/create-account.component';
+import { EnderecoModalComponent } from './Components/modals/endereco-modal/endereco-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,15 @@ import { CreateAccountComponent } from './Components/account/create-account/crea
     ListServicosComponent,
     AddServicosComponent,
     EditServicosComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    EnderecoModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
