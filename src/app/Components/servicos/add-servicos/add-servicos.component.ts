@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Servico } from 'src/app/Models/Servico';
+import { Veiculo } from 'src/app/Models/Veiculo';
 import { ServicosService } from 'src/app/Services/servicos.service';
+import { VeiculosService } from 'src/app/Services/veiculos.service';
 
 @Component({
   selector: 'app-add-servicos',
@@ -56,24 +58,58 @@ export class AddServicosComponent implements OnInit {
       }
     }
   }
+  public propId: string = '';
+  public veicId: string = '';
+  public veiculoSelecionado: string = 'Selecione um veiculo';
+  public veiculos: Veiculo[] = [];
   constructor(private route: ActivatedRoute,
     private servicosService: ServicosService,
+    private veiculosService: VeiculosService,
     private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  addServico() {
-
-  }
-
-  voltar() {
     this.route.paramMap.subscribe({
       next: (params) => {
         const id = params.get('proprietarioId');
 
-        this.router.navigate([`servicos/proprietario/${id}`]);
+        if (id) {
+          this.propId = id;
+          this.veiculosService.getVeiculosByProprietarioId(id).subscribe({
+            next: (response) => {
+              this.veiculos = response;
+            }
+          })
+        }
       }
     })
+  }
+
+  addServico() {
+    this.route.paramMap.subscribe({
+      next: (params) => {
+        const id = params.get('proprietarioId');
+
+        if (id) {
+          this.propId = id;
+          this.servicosService.post(this.veicId, id, this.servicoForm).subscribe({
+            next: (response) => {
+              this.router.navigate([`servicos/proprietario/${this.propId}`]);
+            },
+            error: (erro) => {
+              console.log(erro);
+            }
+          })
+        }
+      }
+    })
+  }
+
+  getVeiculoInfo(id: string, nome: string) {
+    this.veicId = id;
+    this.veiculoSelecionado = nome;
+  }
+
+  voltar() {
+    this.router.navigate([`servicos/proprietario/${this.propId}`]);
   }
 }
