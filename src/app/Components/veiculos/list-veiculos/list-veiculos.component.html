@@ -1,11 +1,11 @@
 <div class="container my-3 ">
   <div class="row">
     <div class="col mb-5">
-      <h1 class="mb-3">Veiculos</h1>
+      <h1 class="mb-3">Carros de {{nomeProprietario}}</h1>
     </div>
     <div class="col-4">
       <button class="btn btn-primary float-end" (click)="addVeiculo()">Novo Veiculo</button>
-      <button class="btn btn-secondary float-end me-2" routerLink="">Voltar</button>
+      <button class="btn btn-secondary float-end me-2" routerLink="" (click)="voltar()">Voltar</button>
     </div>
   </div>
   <table class="table" *ngIf="veiculos && veiculos.length > 0">

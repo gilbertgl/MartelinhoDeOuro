@@ -14,23 +14,19 @@ export class ServicosService {
   constructor(private http: HttpClient) { }
 
   getServicosByProprietarioId(proprietarioId: string): Observable<Servico[]>{
-    return this.http.get<Servico[]>(`${this.baseApiUrl}/servicos/proprietario/${proprietarioId}`);
-  }
-
-  getServicosByVeiculoId(veiculoId: string): Observable<Servico[]>{
-    return this.http.get<Servico[]>(`${this.baseApiUrl}/servicos/veiculo/${veiculoId}`);
+    return this.http.get<Servico[]>(`${this.baseApiUrl}/servicos/${proprietarioId}`);
   }
 
   getServicoById(servicoId: string): Observable<Servico>{
-    return this.http.get<Servico>(`${this.baseApiUrl}/servicos/${servicoId}`);
+    return this.http.get<Servico>(`${this.baseApiUrl}/servicos/servico/${servicoId}`);
   }
 
-  post(servicoId: string, proprietarioId: string, postServicoRequest: Servico): Observable<Servico>{
-    return this.http.post<Servico>(`${this.baseApiUrl}/servicos/${servicoId}/${proprietarioId}`, postServicoRequest);
+  post(veiculoId: string, proprietarioId: string, postServicoRequest: Servico): Observable<Servico>{
+    return this.http.post<Servico>(`${this.baseApiUrl}/servicos/proprietario/${proprietarioId}/veiculo/${veiculoId}`, postServicoRequest);
   }
 
-  put(servicoId: string, postServicoRequest: Servico): Observable<Servico>{
-    return this.http.put<Servico>(`${this.baseApiUrl}/servicos/${servicoId}`, postServicoRequest);
+  put(servicoId: string, updateServicoRequest: Servico): Observable<Servico>{
+    return this.http.put<Servico>(`${this.baseApiUrl}/servicos/${servicoId}`, updateServicoRequest);
   }
 
   delete(servicoId: string): Observable<Servico>{

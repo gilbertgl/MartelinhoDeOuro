@@ -11,6 +11,7 @@ import { VeiculosService } from 'src/app/Services/veiculos.service';
 export class ListVeiculosComponent implements OnInit {
 
   public veiculos: Veiculo[] = [];
+  public nomeProprietario: string | null = '';
   constructor(private route: ActivatedRoute,
               private veiculosService: VeiculosService,
               private router: Router) { }
@@ -25,6 +26,7 @@ export class ListVeiculosComponent implements OnInit {
           this.veiculosService.getVeiculosByProprietarioId(id).subscribe({
             next: (response) => {
               this.veiculos = response;
+              this.nomeProprietario = localStorage.getItem('Nome Proprietario');
             }
           })
         }
@@ -40,5 +42,9 @@ export class ListVeiculosComponent implements OnInit {
         this.router.navigate(['veiculos/add/' + id]);
       }
     })
+  }
+
+  voltar() {
+    localStorage.removeItem('Nome Proprietario');
   }
 }

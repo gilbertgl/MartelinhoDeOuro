@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Servico } from 'src/app/Models/Servico';
 import { ServicosService } from 'src/app/Services/servicos.service';
 
@@ -11,8 +11,10 @@ import { ServicosService } from 'src/app/Services/servicos.service';
 export class ListServicosComponent implements OnInit {
 
   public servicos: Servico[] = [];
+  public nomeCliente: string | null = ''
   constructor(private route: ActivatedRoute,
-              private servicosService: ServicosService) { }
+              private servicosService: ServicosService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -23,6 +25,7 @@ export class ListServicosComponent implements OnInit {
           this.servicosService.getServicosByProprietarioId(id).subscribe({
             next: (response) => {
               this.servicos = response;
+              this.nomeCliente = localStorage.getItem('Nome Proprietario');
             },
             error: (erro) => {
             }
@@ -33,6 +36,16 @@ export class ListServicosComponent implements OnInit {
   }
 
   addServico() {
+    this.route.paramMap.subscribe({
+      next: (params) => {
+        const id = params.get('proprietarioId');
 
+        this.router.navigate([`servicos/add-servico/${id}`]);
+      }
+    })
+  }
+
+  voltar() {
+    localStorage.removeItem("Nome Proprietario");
   }
 }

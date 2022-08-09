@@ -33,4 +33,8 @@ export class ListProprietariosComponent implements OnInit {
     const modalRef = this.modal.open(EnderecoModalComponent, {backdrop: 'static', keyboard: false});
     modalRef.componentInstance.enderecoForm = endereco;
   }
+
+  salvarNomeCliente(nome: string) {
+    localStorage.setItem("Nome Proprietario", nome);
+  }
 }

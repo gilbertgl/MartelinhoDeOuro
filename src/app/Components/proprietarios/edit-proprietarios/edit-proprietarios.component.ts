@@ -83,5 +83,4 @@ export class EditProprietariosComponent implements OnInit {
   voltar() {
     this.router.navigate([''])
   }
-
 }

@@ -1,1 +1,29 @@
-<p>add-servicos works!</p>
+<div class="container my-5">
+  <h1 class="mb-3">Editar Detalhes do Serviço</h1>
+
+  <form #form="ngForm" (ngSubmit)="addServico()" class="ms-">
+    <div class="row">
+
+      <div class="col-6">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            {{veiculoSelecionado}}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li *ngFor="let veiculo of veiculos; let i = index" (click)="getVeiculoInfo(veiculo.id, veiculo.nome)"><a class="dropdown-item">{{veiculo.nome}}</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li (click)="veiculoSelecionado = 'Selecione um veiculo'" class="dropdown-item">Selecione um veiculo</li>
+          </ul>
+        </div>
+        <label for="nome" class="form-label">Valor</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="servicoForm.valor" name="nome">
+        <label for="modelo" class="form-label">Descrição</label>
+        <input type="text" class="form-control" id="modelo" [(ngModel)]="servicoForm.descricao" name="modelo">
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success mt-3">Salvar</button>
+      <button type="button" (click)="voltar()" class="btn btn-primary mt-3 ms-5">Voltar</button>
+    </div>
+  </form>
+</div>

@@ -20,11 +20,11 @@
     <tbody>
       <tr *ngFor="let proprietario of proprietarios">
         <td>{{proprietario.nome}}</td>
-        <td><button type="button" class="btn btn-primary" [routerLink]="['/servicos', 'proprietario', proprietario.id]">
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/servicos', 'proprietario', proprietario.id]" (click)="salvarNomeCliente(proprietario.nome)">
             Serviços
           </button></td>
 
-        <td><button type="button" class="btn btn-primary" [routerLink]="['/veiculos', proprietario.id]">
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/veiculos', proprietario.id]" (click)="salvarNomeCliente(proprietario.nome)">
             Veiculos
           </button></td>
 

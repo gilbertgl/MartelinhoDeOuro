@@ -81,7 +81,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'servicos/add-servico-by-proprietario/:proprietarioId/:veiculoId',
+    path: 'servicos/add-servico/:proprietarioId',
     component: AddServicosComponent,
     canActivate: [RoleGuard]
   },
