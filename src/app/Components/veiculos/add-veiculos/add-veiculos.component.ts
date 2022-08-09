@@ -54,6 +54,5 @@ export class AddVeiculosComponent implements OnInit {
         this.router.navigate([`veiculos/${id}`]);
       }
     })
-
   }
 }

@@ -12,11 +12,16 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   Login(user: any) {
-    return this.http.post(`${this.baseApiUrl}/auth/login`, user, { responseType: 'text'});
+    return this.http.post(`${this.baseApiUrl}/auth/login`, user, { responseType: 'text' });
   }
 
   IsLoggedIn() {
-    return localStorage.getItem('token') != null;
+    if (this.GetToken() != '') {
+      if (!this.tokenExpired())
+        return true;
+    }
+    localStorage.clear();
+    return false;
   }
 
   GetToken() {
@@ -32,6 +37,17 @@ export class AuthService {
       return true;
     alert('Acesso Negado.')
     return false;
+  }
+
+  private tokenExpired() {
+    var _extractedToken = this.GetToken().split('.')[1];
+    var _atobData = atob(_extractedToken);
+    const expiry = (JSON.parse(_atobData)).exp;
+    if ((Math.floor((new Date).getTime() / 1000)) >= expiry) {
+      alert('Sua sessão expirou. Por favor, faça login novamente!')
+      return true;
+    }
+    return false
   }
 
   createAccount(account: any) {

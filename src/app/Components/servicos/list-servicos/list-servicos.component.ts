@@ -11,6 +11,7 @@ import { ServicosService } from 'src/app/Services/servicos.service';
 export class ListServicosComponent implements OnInit {
 
   public servicos: Servico[] = [];
+  public nomeCliente: string | null = ''
   constructor(private route: ActivatedRoute,
               private servicosService: ServicosService) { }
 
@@ -23,6 +24,7 @@ export class ListServicosComponent implements OnInit {
           this.servicosService.getServicosByProprietarioId(id).subscribe({
             next: (response) => {
               this.servicos = response;
+              this.nomeCliente = localStorage.getItem('Nome Proprietario');
             },
             error: (erro) => {
             }
@@ -33,6 +35,10 @@ export class ListServicosComponent implements OnInit {
   }
 
   addServico() {
+    
+  }
 
+  voltar() {
+    localStorage.removeItem("Nome Proprietario");
   }
 }

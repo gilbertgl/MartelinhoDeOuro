@@ -36,19 +36,19 @@ export class EditServicosComponent implements OnInit {
         {
           id: '00000000-0000-0000-0000-000000000000',
           proprietarioId: '00000000-0000-0000-0000-000000000000',
-          nome : '',
-          modelo : '',
-          ano : '',
-          cor : '',
+          nome: '',
+          modelo: '',
+          ano: '',
+          cor: '',
           placa: ''
         }
       ],
-      endereco:{
+      endereco: {
         id: '00000000-0000-0000-0000-000000000000',
         proprietarioId: '00000000-0000-0000-0000-000000000000',
         logradouro: '',
         numero: 0,
-        complemento:'',
+        complemento: '',
         bairro: '',
         cidade: '',
         estado: '',

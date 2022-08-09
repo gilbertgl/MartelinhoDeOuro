@@ -1,11 +1,13 @@
 <div class="container my-3 ">
   <div class="row">
     <div class="col mb-5">
-      <h1 class="mb-3">Serviços</h1>
+      <h1 class="mb-3" >
+        Serviços para {{nomeCliente}}
+      </h1>
     </div>
     <div class="col-4">
       <button class="btn btn-primary float-end" (click)="addServico()">Novo Serviço</button>
-      <button class="btn btn-secondary float-end me-2" routerLink="">Voltar</button>
+      <button class="btn btn-secondary float-end me-2" routerLink="" (click)="voltar()">Voltar</button>
     </div>
   </div>
   <table class="table" *ngIf="servicos && servicos.length > 0">
@@ -19,7 +21,7 @@
     <tbody>
       <tr *ngFor="let servico of servicos">
         <td>{{servico.valor}}</td>
-        <td>{{servico.proprietario.nome}}</td>
+        <td>{{servico.veiculo.nome}}</td>
         <td><button type="button" class="btn btn-primary"
             [routerLink]="['/servicos', 'edit-by-proprietario', servico.id]">Informações</button></td>
       </tr>
