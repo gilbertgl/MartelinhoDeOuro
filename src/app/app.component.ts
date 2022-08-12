@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MartelinhoDeOuro';
 
+  title = 'MartelinhoDeOuro';
+  imageSrc = '';
   username: string | null = '';
 
   constructor(private router: Router) { }
@@ -17,7 +18,6 @@ export class AppComponent {
     localStorage.clear();
     window.location.reload();
     this.router.navigate(['login']);
-
   }
 
   Username() {

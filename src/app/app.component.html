@@ -3,7 +3,10 @@
     <a class="navbar-brand" href="#">Martelinho De Ouro</a>
     <div *ngIf="IsLoggedIn()">
       <form #form="ngForm">
-        <input disabled [(ngModel)]="username" name="username" id="usernameNavBar">
+        <div class="row">
+          <input disabled [(ngModel)]="username" name="username" id="usernameNavBar">
+        </div>
+        <app-foto-perfil></app-foto-perfil>
       </form>
       <button class="btn btn-link float-end" (click)="Logout()">Logout</button>
     </div>

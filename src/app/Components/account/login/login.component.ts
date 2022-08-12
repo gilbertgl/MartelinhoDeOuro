@@ -25,9 +25,11 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.username != null && this.loginForm.password != null) {
       this.loginService.Login(this.loginForm).subscribe(response => {
         if(response != null){
-          localStorage.setItem('token', response)
-          localStorage.setItem('username', this.loginForm.username)
-          this.router.navigate([''])
+          localStorage.clear();
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('username', this.loginForm.username);
+          localStorage.setItem('id', this.loginService.getId());
+          this.router.navigate(['']);
         }
       },
       error => {

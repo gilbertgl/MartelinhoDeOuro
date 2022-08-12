@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { EditServicosComponent } from './Components/servicos/edit-servicos/edit-
 import { CreateAccountComponent } from './Components/account/create-account/create-account.component';
 import { EnderecoModalComponent } from './Components/modals/endereco-modal/endereco-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FotoPerfilComponent } from './Components/modals/foto-perfil/foto-perfil.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +39,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddServicosComponent,
     EditServicosComponent,
     CreateAccountComponent,
-    EnderecoModalComponent
+    EnderecoModalComponent,
+    FotoPerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
