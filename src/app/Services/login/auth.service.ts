@@ -17,6 +17,10 @@ export class AuthService {
     return this.http.post<Token>(`${this.baseApiUrl}/auth/login`, user);
   }
 
+  TokenLogin(userId: string, token: string) {
+    return this.http.post<Token>(`${this.baseApiUrl}/auth/token-login`, { userId, token });
+  }
+
   IsLoggedIn() {
     if (this.GetToken() != '') {
       if (!this.tokenExpired())
@@ -43,8 +47,9 @@ export class AuthService {
   getId() {
     var _extractedToken = this.GetToken().split('.')[1];
     var _atobData = atob(_extractedToken);
-    var _extractedRole = _atobData.split('"')[3];
-    return _extractedRole;
+    var _extractedId = _atobData.split('"')[3];
+    var _extractedUsername = _atobData.split('"')[7];
+    return { _extractedId, _extractedUsername } ;
   }
 
   private tokenExpired() {
@@ -59,7 +64,12 @@ export class AuthService {
   }
 
   createAccount(account: any) {
-    return this.http.post(`${this.baseApiUrl}/auth/register`, account);
+    return this.http.post<any>(`${this.baseApiUrl}/auth/register`, account);
+  }
+
+  EmailVerify(userId: string, token: string)
+  {
+    return this.http.post(`${this.baseApiUrl}/auth/verify`, {userId, token}, {responseType: 'text'});
   }
 
   getPhoto(userId: string) {

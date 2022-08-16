@@ -15,9 +15,18 @@
                 <div class="offset-lg-1">
                   <label for="username">Nome de Usuario</label>
                   <input type="text" class="form-control" name="usurname" id="username" formControlName="username"
-                    placeholder="Insira o nome de usuario" autocomplete="off" required>
+                    placeholder="Ex.: Jonh" autocomplete="off" required>
                 </div>
               </div>
+              <div class="row">
+                <div class="offset-lg-1">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" formControlName="email"
+                    placeholder="user@user.com" autocomplete="off" required>
+                </div>
+              </div>
+
+
               <div class="row">
                 <div class="offset-lg-1">
                   <label for="password">Senha</label>
@@ -27,14 +36,18 @@
               </div>
             </div>
 
-            <div class="offset-lg-2 col-1" >
-              <label class="btn btn-default" *ngIf="!imageSrc" flow-btn style="border-radius: 50%; height: 150px; width:150px; background-color: #fff; border: none;">
-                  <input type="file" class="form-control" name="image" id="image" formControlName="image" style="display: none;" (change)="onFileChange($event)">
+            <div class="offset-lg-2 col-1">
+              <label class="btn btn-default" *ngIf="!imageSrc" flow-btn
+                style="border-radius: 50%; height: 150px; width:150px; background-color: #fff; border: none;">
+                <input type="file" class="form-control" name="photo" id="photo"
+                  style="display: none;" (change)="onFileChange($event)">
               </label>
-              <label class="btn btn-default" *ngIf="imageSrc" flow-btn [ngStyle]="{'background-image':'url('+ imageSrc +')', 'background-size': '100% 100%'}" style="border-radius: 50%; height: 150px; width:150px; border: none;">
-                <input type="file" class="form-control" name="image" id="image" formControlName="image" style="display: none;" (change)="onFileChange($event)">
+              <label class="btn btn-default" *ngIf="imageSrc" flow-btn
+                [ngStyle]="{'background-image':'url('+ imageSrc +')', 'background-size': '100% 100%'}"
+                style="border-radius: 50%; height: 150px; width:150px; border: none;">
+                <input type="file" class="form-control" name="photo" id="photo"
+                  style="display: none;" (change)="onFileChange($event)">
               </label>
-              <!-- <img [src]="imageSrc" *ngIf="imageSrc" class="ms-4 mt-4" style="height: 150px; width:140px; border-radius: 50%;"> -->
             </div>
 
 

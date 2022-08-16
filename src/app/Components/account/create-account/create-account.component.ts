@@ -1,3 +1,4 @@
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,9 +20,9 @@ export class CreateAccountComponent implements OnInit {
 
   account = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    password: new FormControl('', [Validators.required]),
-    image: new FormControl('', [Validators.required]),
-    photo: new FormControl('', [Validators.required])
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    photo: new FormControl('', [Validators.required]),
   });
   imageSrc: string = '';
 
@@ -53,11 +54,14 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginService.createAccount(this.account.value).subscribe(response => {
-      this.router.navigate([''])
-    },
-    error => {
-      console.error(error);
+    this.loginService.createAccount(this.account.value).subscribe({
+      next: (response) => {
+        alert(response.message)
+        this.router.navigate([''])
+      },
+      error: (erro: HttpErrorResponse) => {
+        alert(erro.error);
+      }
     });
     // console.log(this.account.controls.photo.value)
   }

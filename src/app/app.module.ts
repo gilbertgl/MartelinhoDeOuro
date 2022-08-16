@@ -9,7 +9,7 @@ import { AddProprietariosComponent } from './Components/proprietarios/add-propri
 import { EditProprietariosComponent } from './Components/proprietarios/edit-proprietarios/edit-proprietarios.component';
 import { HomeComponent } from './Components/layout/home/home.component';
 import { AuthenticationComponent } from './Components/layout/authentication/authentication.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpRequest, HttpResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './Components/account/login/login.component';
 import { TokenInterceptorService } from './Services/login/token-interceptor.service';
 import { ListVeiculosComponent } from './Components/veiculos/list-veiculos/list-veiculos.component';
@@ -22,6 +22,7 @@ import { CreateAccountComponent } from './Components/account/create-account/crea
 import { EnderecoModalComponent } from './Components/modals/endereco-modal/endereco-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FotoPerfilComponent } from './Components/modals/foto-perfil/foto-perfil.component';
+import { EmailVerificationComponent } from './Components/account/email-verification/email-verification.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FotoPerfilComponent } from './Components/modals/foto-perfil/foto-perfil
     EditServicosComponent,
     CreateAccountComponent,
     EnderecoModalComponent,
-    FotoPerfilComponent
+    FotoPerfilComponent,
+    EmailVerificationComponent
   ],
   imports: [
     BrowserModule,

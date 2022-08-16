@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAccountComponent } from './Components/account/create-account/create-account.component';
+import { EmailVerificationComponent } from './Components/account/email-verification/email-verification.component';
 import { LoginComponent } from './Components/account/login/login.component';
 import { AuthenticationComponent } from './Components/layout/authentication/authentication.component';
 import { HomeComponent } from './Components/layout/home/home.component';
@@ -57,6 +58,11 @@ const routes: Routes = [
         component: CreateAccountComponent
       },
     ]
+  },
+
+  {
+    path: 'verify-email',
+    component: EmailVerificationComponent
   },
 
   {
